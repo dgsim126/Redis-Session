@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: parking
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"
