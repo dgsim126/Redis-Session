@@ -25,6 +25,14 @@ public class KakaoLoginController {
         this.oauthService = oauthService;
     }
 
+    @GetMapping("kakaoLogin")
+    public ResponseEntity<Void> redirectToKakaoLogin() {
+        return ResponseEntity.status(302)
+                .header("Location", "https://kauth.kakao.com/oauth/authorize?client_id=ac5b41063a0eee50117cbb02cdbd0fb9&redirect_uri=http://127.0.0.1:8080/api/v1/login/kakao&response_type=code")
+                .build();
+    }
+
+
     @GetMapping("kakao")
     public ResponseEntity<UserEntity> kakaoLogin(@RequestParam String code) {
         // 1. 인가 코드로 Access Token 요청
