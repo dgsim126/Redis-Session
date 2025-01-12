@@ -34,7 +34,12 @@ public class JoinService {
 
         data.setUsername(joinDTO.getUsername());
         data.setPassword(bCryptPasswordEncoder.encode(joinDTO.getPassword())); // 비밀번호 암호화
+        data.setName(joinDTO.getName());
         data.setRole("ROLE_USER");
+
+        System.out.println("저장할 이름: " + joinDTO.getName());
+        System.out.println("저장할 사용자 이름: " + joinDTO.getUsername());
+
 
         userRepository.save(data);
     }

@@ -22,5 +22,12 @@ public class UserEntity implements Serializable {
 
     private String password;
 
+    private String name;
+
     private String role;
+
+    // OAuth 관련 필드 추가
+    private String oauthProvider; // OAuth 제공자 (예: 'KAKAO', 'GOOGLE', 'NAVER')
+
+    private String oauthUserId; // OAuth 제공자의 고유 사용자 ID
 }

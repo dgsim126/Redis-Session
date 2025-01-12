@@ -38,7 +38,7 @@ public class SecurityConfig {
         // 접근 설정
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/api/v1/", "/api/v1/login", "/api/v1/join").permitAll() // 로그인 없이 접근 가능
+                        .requestMatchers("/api/v1/", "/api/v1/login", "/api/v1/join", "api/v1/login/kakao").permitAll() // 로그인 없이 접근 가능
                         .requestMatchers("/api/v1/admin").hasRole("ADMIN") // 해당 role만 접근 가능
                         .requestMatchers("/api/v1/my/**").hasAnyRole("ADMIN", "USER") // /api/v1/my/**만 허용
                         .anyRequest().authenticated() // 위에서 처리되지 못한 경우 로그인 된 경우만 접근 가능
